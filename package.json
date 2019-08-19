@@ -20,7 +20,6 @@
   "homepage": "https://github.com/laurarrrgh/kl-server-tech-test#readme",
   "devDependencies": {
     "chai": "^4.2.0",
-    "moch": "0.0.1",
     "mocha": "^6.2.0",
     "nodemon": "^1.19.1"
   },
