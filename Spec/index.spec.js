@@ -14,4 +14,21 @@ describe("/api", () => {
         });
     });
   });
+  describe("/restaurants/:restaurantID", () => {
+    it("status 200: responds with a single restaurant object for a valid ID", () => {
+      return request
+        .get("/api/restaurants/1")
+        .expect(200)
+        .then(({ body }) => {
+          expect(body).to.be.an("object");
+          expect(body).to.contain.keys(
+            "id",
+            "name",
+            "address",
+            "cuisine",
+            "rating"
+          );
+        });
+    });
+  });
 });
