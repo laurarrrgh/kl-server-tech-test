@@ -30,5 +30,14 @@ describe("/api", () => {
           );
         });
     });
+    it("status 404: returns 'Restaurant Not Found' when passed an invalid Restaurant ID", () => {
+      return request
+        .get("/api/restaurants/4000")
+        .expect(404)
+        .then(({ body }) => {
+          expect(body.Error).to.equal(404);
+          expect(body.Message).to.equal("Restaurant Not Found");
+        });
+    });
   });
 });

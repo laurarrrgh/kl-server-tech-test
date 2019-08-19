@@ -13,6 +13,9 @@ exports.getAllRestaurants = (req, res, next) => {
 exports.getRestaurantByID = (req, res, next) => {
   const { restaurantID } = req.params;
   fetchRestaurantByID(restaurantID, (err, restaurant) => {
+    if (restaurant.length === 0) {
+      res.status(404).send({ Error: 404, Message: "Restaurant Not Found" });
+    }
     res.status(200).send(restaurant[0]);
   });
 };
